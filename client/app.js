@@ -10,9 +10,6 @@ class Animal{
     }
 }
 
-    let animals3 = getAnimals('/');
-    updateTable(animals3);
-
 const getAnimals = async (url='') => {
     // 1
     const res = await fetch(url);
@@ -23,7 +20,6 @@ const getAnimals = async (url='') => {
         console.log('error', error);
     }
 };
-
 
 const postAnimal = async (url='', animal={}) => {
     // 1
@@ -43,9 +39,17 @@ const postAnimal = async (url='', animal={}) => {
     }
 }
 
+function initialSetup(){
+    getAnimals('/getAnimals').then((animals3 => {
+        updateTable(animals3);
+    }))
+};
+
+initialSetup();
+
 function updateTable(animals){
     // Clearing the table
-    const tbody = document.querySelector('.outputFields tbody');
+    const tbody = document.querySelector('.animalsList');
     tbody.innerHTML = '';
 
     // Filling the table
@@ -55,7 +59,7 @@ function updateTable(animals){
         let animalName = document.createElement('td');
         animalName.innerHTML = animal.name;
         let animalDescription = document.createElement('td');
-        animalName.innerHTML = animal.description;
+        animalDescription.innerHTML = animal.description;
         row.appendChild(animalName);
         row.appendChild(animalDescription);
         tbody.appendChild(row);

@@ -37,7 +37,7 @@ const animals = [{
     description: 'lion is cool'
 }];
 
-app.get('/', function(req, res){
+app.get('/getAnimals', function(req, res){
     // console.log(req);
     res.send(animals);
 })
