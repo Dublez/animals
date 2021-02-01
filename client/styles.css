@@ -1,0 +1,31 @@
+body{
+    display: grid;
+    max-width: 500px;
+}
+
+#animalName, #animalDescription{
+    width: 100%;
+}
+
+#animalDescription{
+    height: 4rem;
+}
+
+.br-label{
+    margin-top: 20px;
+    display:inline-block;
+}
+
+.inputFields{
+    border: 1px solid black;
+    margin: 20px;
+    padding: 50px;
+}
+
+.outputFields{
+    margin: 20px;
+}
+
+.outputFields tr th{
+    border-bottom: 2px solid black;
+}
